@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 
-project(URDF 2)
+project(faro_description)
 
 find_package(catkin REQUIRED)
 
