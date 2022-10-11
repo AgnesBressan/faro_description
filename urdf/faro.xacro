@@ -9,37 +9,37 @@
   <link name="dummy"></link>
   <joint name="dummy_joint" type="fixed">
       <parent link="dummy" />
-      <child link="Base1_link" />
+      <child link="base_link" />
   </joint>
-  
 
-  <link name="Base1_link">
+  <link
+    name="base_link">
     <inertial>
       <origin
-        xyz="5.1713E-10 -7.3629E-10 -8.9432E-11"
+        xyz="0.00873430427479388 -0.00175292065981603 -1.60683999922646E-05"
         rpy="0 0 0" />
       <mass
-        value="0.57317" />
+        value="0.451148910388453" />
       <inertia
-        ixx="0.00079912"
-        ixy="1.6466E-06"
-        ixz="1.5171E-07"
-        iyy="0.0022607"
-        iyz="-9.1778E-09"
-        izz="0.0015696" />
+        ixx="0.000741612731246182"
+        ixy="1.64659716773886E-06"
+        ixz="1.51707793234015E-07"
+        iyy="0.00220273812328352"
+        iyz="-9.17558592682493E-09"
+        izz="0.00147205616680342" />
     </inertial>
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" /> 
+        rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://faro_description/meshes/Base1_link.STL" />
+          filename="package://faro_description/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.79216 0.81961 0.93333 1" />
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
       </material>
     </visual>
     <collision>
@@ -48,96 +48,25 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://faro_description/meshes/Base1_link.STL" />
+          filename="package://faro_description/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
-  
-  
   <link
-    name="RodaEsquerda_Link">
-      <inertial>
-        <origin xyz="4.9801308910080166e-14 0.006389230769241375 -4.5102810375396984e-17" rpy="0 0 0"/>
-        <mass value="0.20037470643677413"/>
-        <inertia ixx="6.9e-05" iyy="0.000135" izz="6.9e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
-      </inertial>
-      <visual>
-        <origin xyz="0.005 -0.072 -0.0234" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://faro_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
-        <material name="silver"/>
-      </visual>
-      <collision>
-        <origin xyz="0.005 -0.072 -0.0234" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://faro_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
-      </collision>
-    </link>
-  <joint
-    name="RodaEsquerda_Joint"
-    type="continuous">
-    <origin
-      xyz="-0.053091 0.098228 0.011373"
-      rpy="1.5708 -0.58968 3.1416" />
-    <parent
-      link="Base1_link" />
-    <child
-      link="RodaEsquerda_Link" />
-    <axis
-      xyz="0 0 0" />
-  </joint>
-  <link
-    name="RodaDireita_Link">
-      <inertial>
-        <origin xyz="4.9791767930962294e-14 -0.006389230769227219 3.469446951953614e-17" rpy="0 0 0"/>
-        <mass value="0.20037470643677413"/>
-        <inertia ixx="6.9e-05" iyy="0.000135" izz="6.9e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
-      </inertial>
-      <visual>
-        <origin xyz="0.005 0.072 -0.0234" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://faro_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
-        <material name="silver"/>
-      </visual>
-      <collision>
-        <origin xyz="0.005 0.072 -0.0234" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://faro_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
-      </collision>
-    </link>
-    
-  <joint
-    name="RodaDireita_Joint"
-    type="continuous">
-    <origin
-      xyz="-0.053091 -0.098296 0.011373"
-      rpy="1.5708 -1.1528 0" />
-    <parent
-      link="Base1_link" />
-    <child
-      link="RodaDireita_Link" />
-    <axis
-      xyz="0 0 0" />
-  </joint>
-  <!--<link
-    name="Esfera_Link">
+    name="RodaEsferica_Link">
     <inertial>
       <origin
-        xyz="0 0 0"
+        xyz="0.068659 -0.017264 0.00018379"
         rpy="0 0 0" />
       <mass
-        value="0.010855" />
+        value="0.020844" />
       <inertia
-        ixx="2.0829E-07"
-        ixy="-6.6174E-24"
-        ixz="0"
-        iyy="2.0829E-07"
-        iyz="-6.6174E-24"
-        izz="2.0829E-07" />
+        ixx="9.8497E-07"
+        ixy="1.4029E-22"
+        ixz="-7.8188E-23"
+        iyy="1.4E-06"
+        iyz="1.592E-22"
+        izz="8.9118E-07" />
     </inertial>
     <visual>
       <origin
@@ -145,7 +74,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://faro_description/meshes/Esfera_Link.STL" />
+          filename="package://faro_description/meshes/RodaEsferica_Link.STL" />
       </geometry>
       <material
         name="">
@@ -159,40 +88,146 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://faro_description/meshes/Esfera_Link.STL" />
+          filename="package://faro_description/meshes/RodaEsferica_Link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="Esfera_Joint"
-    type="continuous">
+    name="RodaEsferica_Joint"
+    type="fixed">
     <origin
-      xyz="0 -0.014652 0"
-      rpy="0.50086 -1.1467 -0.05132" />
+      xyz="0 0 0"
+      rpy="1.5708 0 0" />
     <parent
-      link="Base2_Link" />
+      link="base_link" />
     <child
-      link="Esfera_Link" />
+      link="RodaEsferica_Link" />
     <axis
       xyz="0 0 0" />
+    <dynamics
+      friction="0" />
+  </joint>
+  <link
+    name="RodaEsquerda_Link">
+    <inertial>
+      <origin
+        xyz="-2.8093E-09 -1.6256E-09 0.00047467"
+        rpy="0 0 0" />
+      <mass
+        value="0.050589" />
+      <inertia
+        ixx="2.8263E-05"
+        ixy="-1.4586E-12"
+        ixz="1.5929E-12"
+        iyy="2.8263E-05"
+        iyz="1.4235E-12"
+        izz="4.8345E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaEsquerda_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaEsquerda_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RodaEsquerda_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.053091 0.098228 0.011373"
+      rpy="1.5708 -0.58968 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="RodaEsquerda_Link" />
+    <axis
+      xyz="0 0 -1" />
     <limit
-      lower="0"
-      upper="0"
+      lower="-3.14"
+      upper="3.14"
       effort="0"
       velocity="0" />
-  </joint>-->
+  </joint>
+  <link
+    name="RodaDireita_Link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaDireita_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaDireita_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RodaDireita_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.053091 -0.098296 0.011373"
+      rpy="1.5708 -1.1528 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RodaDireita_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
 
-  <gazebo reference="Base1_link">
+  <gazebo reference="base_link">
     <material>Gazebo/Green</material>
   </gazebo>
 
-  <gazebo reference="RodaEsquerda_Link">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-  <gazebo reference="RodaDireita_Link">
-    <material>Gazebo/Red</material>
-  </gazebo>
   
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
@@ -215,12 +250,12 @@
       <publishOdomTF>true</publishOdomTF>
       <publishTf>1</publishTf>
       <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>Base1_link</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo>
 
 
   <!-- Sensor LF -->
-  <xacro:sensor x="0.145" y="0.03" z="0.007" parent="Base1_link"/>
+  <xacro:sensor x="0.145" y="0.03" z="0.007" parent="base_link"/>
     
 </robot>
