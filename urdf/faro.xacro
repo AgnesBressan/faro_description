@@ -1,0 +1,226 @@
+<?xml version="1.0" ?>
+
+<robot name="faro_description" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+  
+  <xacro:include filename="$(find faro_description)/urdf/sensor.xacro"/>
+  <xacro:include filename="$(find faro_description)/urdf/common_properties.xacro"/>
+
+  <!-- Dummy for no warning -->    
+  <link name="dummy"></link>
+  <joint name="dummy_joint" type="fixed">
+      <parent link="dummy" />
+      <child link="Base1_link" />
+  </joint>
+  
+
+  <link name="Base1_link">
+    <inertial>
+      <origin
+        xyz="5.1713E-10 -7.3629E-10 -8.9432E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.57317" />
+      <inertia
+        ixx="0.00079912"
+        ixy="1.6466E-06"
+        ixz="1.5171E-07"
+        iyy="0.0022607"
+        iyz="-9.1778E-09"
+        izz="0.0015696" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" /> 
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/Base1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/Base1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  
+  <link
+    name="RodaEsquerda_Link">
+      <inertial>
+        <origin xyz="4.9801308910080166e-14 0.006389230769241375 -4.5102810375396984e-17" rpy="0 0 0"/>
+        <mass value="0.20037470643677413"/>
+        <inertia ixx="6.9e-05" iyy="0.000135" izz="6.9e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.005 -0.072 -0.0234" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://urdf_simple_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="0.005 -0.072 -0.0234" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://urdf_simple_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+  <joint
+    name="RodaEsquerda_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.053091 0.098228 0.011373"
+      rpy="1.5708 -0.58968 3.1416" />
+    <parent
+      link="Base1_link" />
+    <child
+      link="RodaEsquerda_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="RodaDireita_Link">
+      <inertial>
+        <origin xyz="4.9791767930962294e-14 -0.006389230769227219 3.469446951953614e-17" rpy="0 0 0"/>
+        <mass value="0.20037470643677413"/>
+        <inertia ixx="6.9e-05" iyy="0.000135" izz="6.9e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="0.005 0.072 -0.0234" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://urdf_simple_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="0.005 0.072 -0.0234" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://urdf_simple_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    
+  <joint
+    name="RodaDireita_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.053091 -0.098296 0.011373"
+      rpy="1.5708 -1.1528 0" />
+    <parent
+      link="Base1_link" />
+    <child
+      link="RodaDireita_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <!--<link
+    name="Esfera_Link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.010855" />
+      <inertia
+        ixx="2.0829E-07"
+        ixy="-6.6174E-24"
+        ixz="0"
+        iyy="2.0829E-07"
+        iyz="-6.6174E-24"
+        izz="2.0829E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/Esfera_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.89804 0.89804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/Esfera_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Esfera_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.014652 0"
+      rpy="0.50086 -1.1467 -0.05132" />
+    <parent
+      link="Base2_Link" />
+    <child
+      link="Esfera_Link" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>-->
+
+  <gazebo reference="Base1_link">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="RodaEsquerda_Link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="RodaDireita_Link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <rosDebugLevel>na</rosDebugLevel>
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>RodaEsquerda_Joint</leftJoint>
+      <publishWheelTF>false</publishWheelTF>
+      <rightJoint>RodaDireita_Joint</rightJoint>
+      <wheelSeparation>0.3</wheelSeparation>
+      <publishWheelJointState>false</publishWheelJointState>
+      <wheelDiameter>0.2</wheelDiameter>
+      <wheelAcceleration>0</wheelAcceleration>
+      <wheelTorque>5</wheelTorque>
+      <odometrySource>1</odometrySource>
+      <torque>0.1</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <publishOdomTF>true</publishOdomTF>
+      <publishTf>1</publishTf>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>Base1_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+
+  <!-- Sensor LF -->
+  <xacro:sensor x="0.145" y="0.03" z="0.007" parent="Base1_link"/>
+    
+</robot>
