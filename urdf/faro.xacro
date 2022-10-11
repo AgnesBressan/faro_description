@@ -64,14 +64,14 @@
       <visual>
         <origin xyz="0.005 -0.072 -0.0234" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://urdf_simple_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://faro_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="0.005 -0.072 -0.0234" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://urdf_simple_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://faro_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -98,14 +98,14 @@
       <visual>
         <origin xyz="0.005 0.072 -0.0234" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://urdf_simple_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://faro_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="0.005 0.072 -0.0234" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://urdf_simple_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://faro_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
