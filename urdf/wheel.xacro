@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="wheel" params="name position stl">
+    <link name="${name}_wheel">
+    <inertial>
+        <mass value="0.2"/>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <inertia ixx="0.000526666666667" ixy="0" ixz="0" iyy="0.000526666666667" iyz="0" izz="0.001"/>
+    </inertial>
+    <collision>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <geometry>
+          <mesh
+            filename="package://faro_description/meshes/${stl}" />
+        </geometry>
+    </collision>
+    <visual>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <geometry>
+          <mesh
+            filename="package://faro_description/meshes/${stl}" />
+        </geometry>
+    </visual>
+    </link>
+
+    <gazebo reference="${name}_wheel">
+      <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <joint name="joint_${name}_wheel" type="continuous">
+    <origin rpy="0 0 0" xyz="${position}"/>
+    <child link="${name}_wheel"/>
+    <parent link="base_link"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="10000" velocity="1000"/>
+    <joint_properties damping="1.0" friction="1.0"/>
+    </joint>
+  </xacro:macro>
+</robot>
