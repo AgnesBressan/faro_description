@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="faro_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0174255966476911 0.00801880376211097 0.000514824513657607"
+        rpy="0 0 0" />
+      <mass
+        value="0.571210773201543" />
+      <inertia
+        ixx="0.00106878852176426"
+        ixy="1.64537220733215E-06"
+        ixz="1.51778150035731E-07"
+        iyy="0.00251951460362473"
+        iyz="2.05551196011702E-06"
+        izz="0.00161673123451595" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="RodaEsquerda_Link">
+    <inertial>
+      <origin
+        xyz="-2.8092860329676E-09 -1.62563565386797E-09 0.000474666987463443"
+        rpy="0 0 0" />
+      <mass
+        value="0.0505890699400185" />
+      <inertia
+        ixx="2.82629417091323E-05"
+        ixy="-1.45857252989277E-12"
+        ixz="1.5929368350202E-12"
+        iyy="2.82629426261707E-05"
+        iyz="1.42351071240575E-12"
+        izz="4.83451974004371E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaEsquerda_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaEsquerda_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RodaEsquerda_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.053091 0.098228 0.011373"
+      rpy="1.5708 -0.58968 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="RodaEsquerda_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RodaDireita_Link">
+    <inertial>
+      <origin
+        xyz="-1.57279833080948E-09 1.97751798269863E-09 0.000474666390947093"
+        rpy="0 0 0" />
+      <mass
+        value="0.0505890697331487" />
+      <inertia
+        ixx="2.82629424828749E-05"
+        ixy="1.66841255641224E-12"
+        ixz="5.67166595620934E-13"
+        iyy="2.82629415449179E-05"
+        iyz="-1.63581653303395E-12"
+        izz="4.83451973964662E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaDireita_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaDireita_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RodaDireita_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.053091 -0.098296 0.011373"
+      rpy="1.5708 -1.1528 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RodaDireita_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RodaEsferica_Link">
+    <inertial>
+      <origin
+        xyz="-5.22644872541084E-05 0.00222455562959233 -0.0010857972628485"
+        rpy="0 0 0" />
+      <mass
+        value="0.020844144758511" />
+      <inertia
+        ixx="9.6931356518338E-07"
+        ixy="7.23987073595594E-09"
+        ixz="3.55631081018164E-08"
+        iyy="1.30556974124119E-06"
+        iyz="-1.93784561089294E-07"
+        izz="1.00125214093605E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaEsferica_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.898039215686275 0.898039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/RodaEsferica_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RodaEsferica_Joint"
+    type="fixed">
+    <origin
+      xyz="0.068659 -0.00018379 -0.01974"
+      rpy="2.0249 0.02111 -2.718" />
+    <parent
+      link="base_link" />
+    <child
+      link="RodaEsferica_Link" />
+    <axis
+      xyz="0 0 0" />
+    <dynamics
+      friction="0" />
+  </joint>
+  <link
+    name="ArUco_Link">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 0.001 6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.0129572802" />
+      <inertia
+        ixx="6.99978201762134E-06"
+        ixy="-4.00894272551875E-40"
+        ixz="-3.10741874939846E-22"
+        iyy="1.39909258484427E-05"
+        iyz="0"
+        izz="6.99978201762134E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/ArUco_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faro_description/meshes/ArUco_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ArUco_Joint"
+    type="fixed">
+    <origin
+      xyz="0.050084 -3.3786E-05 0.070373"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ArUco_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
