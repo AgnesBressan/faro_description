@@ -31,5 +31,4 @@
 
   <!-- Visualization - RViz-->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find faro_description)/rviz/rviz.rviz" output="screen" />
-
 </launch>
