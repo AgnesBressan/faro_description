@@ -24,7 +24,8 @@ class Sensores:
 
         self.sensor_pub = rospy.Publisher("/dados", Int32MultiArray, queue_size=10)
         
-        self.timer_pub = rospy.Timer(rospy.Duration(self.publish_time), self.timerCallback)   
+        self.timer_pub = rospy.Timer(rospy.Duration(self.publish_time), self.timerCallback)
+        rospy.logwarn("Rodando") 
 
 
     def imgFullLeftCallback (self, ros_img):

@@ -12,10 +12,11 @@ class Controles:
 
         self.vel = Twist()
         self.publish_time = 0.05
+
+        # dados enviados para o cmd_vel
+        # pra esquerda angular em z negativo
         self.angular_z = 0
         self.linear_x = 0
-
-        rospy.Subscriber("/dados", Int32MultiArray, self.reed, queue_size = 10)
 
         # dados recebidos dos snesores
         self.dados = [-1, -1, -1, -1, -1]
@@ -25,12 +26,14 @@ class Controles:
         self.right = self.dados[3]
         self.full_right = self.dados[4]
 
-        # dados enviados para o cmd_vel
-        # pra esquerda angular em z negativo
-
+        rospy.Subscriber("/dados", Int32MultiArray, self.reed, queue_size = 10)
+        
         self.cmd_vel_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=10)
 
-        self.timer_pub = rospy.Timer(rospy.Duration(self.publish_time), self.timerCallback)   
+        self.timer_pub = rospy.Timer(rospy.Duration(self.publish_time), self.timerCallback)  
+
+        rospy.logwarn("Rodando") 
+ 
 
     def reed (self, msg):
 
@@ -41,17 +44,11 @@ class Controles:
         self.right = self.dados[3]
         self.full_right = self.dados[4]
 
-        if self.full_left == 1 and self.left == 1 and self.full_right == 0 and self.right == 1 and self.center == 1:
+        if self.full_left == 1 and self.left == 1 and self.full_right == 1 and self.right == 1 and self.center == 0:
             self.linear_x = 0.1
-
-        if self.full_left == 0 and self.left == 0 and self.full_right == 0 and self.right == 0 and self.center == 0:
-            print("para")
-
-        if self.full_left == 1 and self.left == 1 and self.full_right == 0 and self.right == 0 and self.center == 1:
-            print("esquerda")
-        
-        if self.full_left == 0 and self.left == 0 and self.full_right == 1 and self.right == 1 and self.center == 1:
-            print("direita")
+        else:
+            self.linear_x = 0
+            self.angular_z = 0
         
 
 
