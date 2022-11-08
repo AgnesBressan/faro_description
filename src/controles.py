@@ -12,6 +12,7 @@ class Controles:
 
         self.vel = Twist()
         self.publish_time = 0.05
+        self.aux = 0
 
         # dados enviados para o cmd_vel
         # pra esquerda angular em z negativo
@@ -44,11 +45,30 @@ class Controles:
         self.right = self.dados[3]
         self.full_right = self.dados[4]
 
-        if self.full_left == 1 and self.left == 1 and self.full_right == 1 and self.right == 1 and self.center == 0:
-            self.linear_x = 0.1
+        if self.aux == 1:
+            self.linear_x = 0.18
+            self.angular_z = -1.1
+            print("virando")
+            if self.full_left == 0 and self.left == 0 and self.full_right == 0 and self.right == 0 and self.center == 0:
+                self.aux = 0
         else:
-            self.linear_x = 0
-            self.angular_z = 0
+            #frente
+            if self.full_left == 1 and self.left == 1 and self.full_right == 1 and self.right == 1 and self.center == 0:
+                self.linear_x = 0.2
+                print("frente")
+            #cruzamento
+            elif self.full_left == 0 and self.left == 0 and self.full_right == 0 and self.right == 0 and self.center == 0:
+                self.linear_x = 0.2
+                print("cruzamento")
+            #curva 1
+            elif self.full_left == 1 and self.left == 0 and self.full_right == 1 and self.right == 1 and self.center == 0:
+                self.aux = 1 
+                print("add 1")
+            #parado
+            else:
+                self.linear_x = 0
+                self.angular_z = 0
+                print("parado")
         
 
 
