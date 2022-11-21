@@ -1,8 +1,12 @@
 <launch>
-  <arg name="world" default="pista1x" />
+  <arg name="world" default="pista2x" />
   <param name="robot_description" command="$(find xacro)/xacro $(find faro_description)/urdf/faro.xacro"/>
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model urdf_simple"/>
-  
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+    args="-param robot_description
+          -urdf
+          -y -0.005
+          -model urdf_simple"/>
+
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find pista)/worlds/$(arg world).world"/>
     <arg name="paused" value="true"/>
