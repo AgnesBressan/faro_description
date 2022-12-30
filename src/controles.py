@@ -44,14 +44,15 @@ class Controles:
         self.center = self.dados[2]
         self.right = self.dados[3]
         self.full_right = self.dados[4]
+        erro=0
 
         #parar
         if self.full_left == 1 and self.left == 1 and self.center == 1 and self.full_right == 1 and self.right == 1:
             self.linear_x = 0
             self.angular_z = 0
             print("parar")
+        #--------------------------------------------------------------------------------------------------------------------------
 
-#--------------------------------------------------------------------------------------------------------------------------
 
         #arruma esquerda
         elif self.full_left == 0 and self.left == 0 and self.center == 0 and self.full_right == 0 and self.right == 1:
@@ -99,26 +100,65 @@ class Controles:
             self.angular_z = 1.5
             print("direita")
 
-#--------------------------------------------------------------------------------------------------------------------------
+        #--------------------------------------------------------------------------------------------------------------------------
 
         #frente
         else:
-            self.linear_x = 0.3
+            self.linear_x = 0.4
             self.angular_z = 0
             print("frente")
+        #--------------------------------------------------------------------------------------------------------------------------
+
+
+    def timerCallback(self, event):
+            msg = Twist()
+            msg.angular.z = self.angular_z
+            msg.linear.x = self.linear_x
+            self.cmd_vel_pub.publish(msg)
+
+if __name__ == '__main__':
+    rospy.init_node("controles")
+    Controles()
+    rospy.spin()
+
+
+'''
+        if self.full_left==0 and self.left==0 and self.center==1 and self.right==0 and self.full_right==0:
+            erro = 0
+        elif self.full_left==0 and self.left==0 and self.center==1 and self.right==1 and self.full_right==0:
+            erro = 1
+        elif self.full_left==0 and self.left==0 and self.center==0 and self.right==1 and self.full_right==0:
+            erro = 2
+        elif self.full_left==0 and self.left==0 and self.center==0 and self.right==1 and self.full_right==1:
+            erro = 3
+        elif self.full_left==0 and self.left==0 and self.center==0 and self.right==0 and self.full_right==1:
+            erro = 4
+        elif self.full_left==0 and self.left==1 and self.center==1 and self.right==0 and self.full_right==0:
+            erro = -1
+        elif self.full_left==0 and self.left==1 and self.center==0 and self.right==0 and self.full_right==0:
+            erro = -2
+        elif self.full_left==1 and self.left==1 and self.center==0 and self.right==0 and self.full_right==0:
+            erro = -3
+        elif self.full_left==1 and self.left==0 and self.center==0 and self.right==0 and self.full_right==0:
+            erro = -4
+       
+#--------------------------------------------------------------------------------------------------------------------------
+
+        if erro==0:
+            integral = 0
+            prop = erro
+            integral = integral + erro
+            if(integral > 255):
+                integral = 255
+        elif(integral < -255):
+            integral = -255
+            derivativo = erro - U_erro
+            PID = ((Kp * prop) + (Ki * integral) + (Kd * derivativo));
+            U_erro = erro
+'''
         
 
 
 
 
-    def timerCallback(self, event):
-        msg = Twist()
-        msg.angular.z = self.angular_z
-        msg.linear.x = self.linear_x
-        self.cmd_vel_pub.publish(msg)
-
-if __name__ == '__main__':
-
-    rospy.init_node("controles")
-    Controles()
-    rospy.spin()
+    
